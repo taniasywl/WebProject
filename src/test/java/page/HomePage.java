@@ -364,12 +364,18 @@ public class HomePage {
     }
 
     public void clickPreviousButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(prevButton)).click();
+        wait.until(
+                ExpectedConditions.elementToBeClickable(prevButton)
+        ).click();
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(nextButton)
+        );
     }
 
     public boolean isPreviousPageDisplayed() {
-        return wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(products)
-        ).size() > 0;
+        wait.until(
+                ExpectedConditions.visibilityOfAllElementsLocatedBy(productCards)
+        );
+        return driver.findElements(productCards).size() > 0;
     }
 }
