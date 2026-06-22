@@ -264,9 +264,12 @@ public class HomePage {
 
 
     public void verifyNextPageDisplayed() {
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(prevButton)
+        );
         Assert.assertTrue(
-                "Products should be displayed",
-                driver.findElements(productCards).size() > 0
+                "Previous button should be displayed after clicking Next",
+                driver.findElement(prevButton).isDisplayed()
         );
     }
 
