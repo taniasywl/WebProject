@@ -10,6 +10,9 @@ Feature: Sign Up Demoblaze
     And the user enters a password "tania123"
     And clicks the Sign Up submit button
     Then the user should see a successful signup alert
+    And the user clicks "OK" on the alert
+    And the Sign Up popup should be closed
+    And the user should remain on the homepage
 
   Scenario: User signs up with an existing username
     When the user clicks the Sign Up button
