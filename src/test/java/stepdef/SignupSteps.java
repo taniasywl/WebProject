@@ -27,6 +27,12 @@ public class SignupSteps {
         signupPage.inputUsername(username);
     }
 
+    @And("the user enters a unique username")
+    public void userEntersUniqueUsername() {
+        String username = "user" + System.currentTimeMillis();
+        signupPage.inputUsername(username);
+    }
+
     @And("the user enters a password {string}")
     public void userEntersPassword(String password) {
         signupPage.inputPassword(password);
